@@ -7,7 +7,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import Images from '../../utils/Images';
 import { rp } from '../../utils/Helpers';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { GradientBodyConfig, categoryArray, defaultCategoryData  } from '../../utils/Constants';
+import { categoryArray, defaultCategoryData, staticText, textLimit  } from '../../utils/Constants';
+import { GradientBodyConfig } from '../../defaultStyle/DefaultStyle';
 import { NoteModel } from '../../models/noteModel/NoteModel';
 import {HomeViewModel} from '../../viewModels/homeViewModel/HomeViewModel';
 import ListButton from '../../utils/ListButtom';
@@ -36,7 +37,7 @@ const HomeView: React.FC = () => {
                             />
                         </View>
                         <View style={[defaultStyles.contentFlexAdjustment]}>
-                            <Text style={[defaultStyles.blurTextStyle]}>{"Recently created notes"}</Text>
+                            <Text style={[defaultStyles.blurTextStyle]}>{staticText.recentNotes}</Text>
                         </View>
                     </View>
                     {categoryArray.map((data) => {
@@ -57,17 +58,16 @@ const HomeView: React.FC = () => {
                                     {viewModel.recentNoteArr[data] && viewModel.recentNoteArr[data].map((objData) => {
                                         return(
                                             <TouchableOpacity key={objData.created_at}>
-                                                <ListButton keys={objData.created_at} content={objData.content} textLimit={20} rightIcon={Images.redArrowIcon} />
+                                                <ListButton keys={objData.created_at} content={objData.content} textLimit={textLimit} rightIcon={Images.redArrowIcon} />
                                             </TouchableOpacity>
                                             )
                                     })}
                                     {!viewModel.recentNoteArr[data] &&
-                                        <ListButton keys={data} content={"No Notes in this Category"} textLimit={-1} isDisabledButton={true}/>
+                                        <ListButton keys={data} content={staticText.NoNotes} textLimit={-1} isDisabledButton={true}/>
                                     }
                             </View>
                         );
                     })}
-                    
                 </ScrollView>
             </SafeAreaView>
         </LinearGradient>  

@@ -7,7 +7,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import Images from '../../utils/Images';
 import { rp } from '../../utils/Helpers';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { GradientBodyConfig } from '../../utils/Constants';
+import { staticText } from '../../utils/Constants';
+import { GradientBodyConfig } from '../../defaultStyle/DefaultStyle';
 import { Dropdown } from 'react-native-element-dropdown';
 import { NoteModel } from '../../models/noteModel/NoteModel';
 import {NoteViewModel} from '../../viewModels/noteViewModel/NoteViewModel';
@@ -20,60 +21,56 @@ const NoteView: React.FC = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <LinearGradient
-        colors={GradientBodyConfig.colors}
-        start={GradientBodyConfig.start}
-        end={GradientBodyConfig.end}
-        locations={GradientBodyConfig.locations}
-      style={defaultStyles.gradientLayerBody}>
-        <SafeAreaView style={defaultStyles.safeAreaStyle}>
-        <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
-        <ScrollView style={{flex: 1}}>
-        <Dropdown
-            style={styles.dropdown}
-              data={viewModel.dropDownData}
-              labelField="value"
-              valueField="label"
-              placeholder="Choose a category"
-              placeholderStyle={styles.selectedText} 
-              value={viewModel.selectedValue}
-              onChange={(item) => viewModel.setSelectedValue(item.label)}
-              selectedTextStyle={styles.selectedText}
-              renderItem={(item) => 
-                <View style={styles.dropDownItemSelectionView}>
-                  <Text >{item.value}</Text>
-                </View>
-              }
-            />
-        <View style={[styles.textInputView]}>
+        <LinearGradient
+            colors={GradientBodyConfig.colors}
+            start={GradientBodyConfig.start}
+            end={GradientBodyConfig.end}
+            locations={GradientBodyConfig.locations}
+            style={defaultStyles.gradientLayerBody}>
+            <SafeAreaView style={defaultStyles.safeAreaStyle}>
+              <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
+              <ScrollView style={{flex: 1}}>
+                <Dropdown
+                    style={styles.dropdown}
+                      data={viewModel.dropDownData}
+                      labelField="value"
+                      valueField="label"
+                      placeholder={staticText.dropDownPlaceholder}
+                      placeholderStyle={styles.selectedText} 
+                      value={viewModel.selectedValue}
+                      onChange={(item) => viewModel.setSelectedValue(item.label)}
+                      selectedTextStyle={styles.selectedText}
+                      renderItem={(item) => 
+                        <View style={styles.dropDownItemSelectionView}>
+                          <Text >{item.value}</Text>
+                        </View>
+                      }
+                    />
+                <View style={[styles.textInputView]}>
+                    
+                    <TextInput
+                        style={styles.textInput}
+                        value={viewModel.text}
+                        onChangeText={viewModel.onTextInputchange}
+                        multiline={true} 
+                        placeholder={staticText.inputContentPlaceholder}
+                        placeholderTextColor="rgba(255, 255, 255, 0.9)" 
+                        maxLength={viewModel.maxLength} 
+                      />
+                      <View style={styles.characterView}>
+                      <Text style={styles.characterCount}>
+                        {`${viewModel.text.length}/${viewModel.maxLength}`}
+                      </Text>
+                      </View>
 
-            <TextInput
-                style={styles.textInput}
-                value={viewModel.text}
-                onChangeText={viewModel.onTextInputchange}
-                multiline={true} 
-                placeholder="Please input note content"
-                placeholderTextColor="rgba(255, 255, 255, 0.9)" 
-                maxLength={viewModel.maxLength} 
-              />
-              <View style={styles.characterView}>
-              <Text style={styles.characterCount}>
-                {`${viewModel.text.length}/${viewModel.maxLength}`}
-              </Text>
-              </View>
-              
-        </View>
-        
-        </ScrollView>
-        
-        
-        </SafeAreaView>
-        {viewModel.keyboardVisible == false &&
-          <ButtonTab buttonOnPress={()=>viewModel.saveNote()}  displayText={"Save"} />
-        }
-            
+                </View>
+              </ScrollView>
+              {viewModel.keyboardVisible == false &&
+                <ButtonTab buttonOnPress={()=>viewModel.saveNote()}  displayText={staticText.save} />
+              }
+            </SafeAreaView>
         </LinearGradient>  
-        </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
   );
 };
 

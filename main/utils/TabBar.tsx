@@ -4,7 +4,8 @@ import { rp } from '../utils/Helpers';
 import LinearGradient from 'react-native-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Images from '../utils/Images';
-import { GradientHeaderAndTabConfig, tabConfig } from '../utils/Constants';
+import { tabConfig } from '../utils/Constants';
+import { GradientHeaderAndTabConfig } from '../defaultStyle/DefaultStyle';
 import type {
     ParamListBase,
     TabNavigationState,

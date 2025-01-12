@@ -9,7 +9,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { NoteModel } from '../../models/noteModel/NoteModel';
 import {SettingViewModel} from '../../viewModels/settingViewModel/SettingViewModel';
 import ButtonTab from '../../utils/ButtonTab';
-import { GradientBodyConfig } from '../../utils/Constants';
+import { staticText } from '../../utils/Constants';
+import { GradientBodyConfig } from '../../defaultStyle/DefaultStyle';
 import ListButton from '../../utils/ListButtom';
 import { defaultStyles } from '../../defaultStyle/DefaultStyle';
 
@@ -33,12 +34,12 @@ const SettingView: React.FC = () => {
                         );
                     })}
                     {viewModel.showPopup && (
-                        <AlertBox opacity={viewModel.opacity} displayText={"All Notes have been cleared"} />
+                        <AlertBox opacity={viewModel.opacity} displayText={staticText.clearNoteMsg} />
                     )}
                 </ScrollView>
                 
             </SafeAreaView>
-                <ButtonTab buttonOnPress={()=>viewModel.deleteAll()} displayText={"Delete All Notes"}/>
+                <ButtonTab buttonOnPress={()=>viewModel.deleteAll()} displayText={staticText.deleteBtnText}/>
         </LinearGradient>  
     );
 };

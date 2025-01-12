@@ -64,3 +64,35 @@ export const defaultStyles = StyleSheet.create({
         marginHorizontal: rp(20),
     },
 });
+
+export const GradientHeaderAndTabConfig = {
+    colors: ['#280947', '#280841'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 0 }
+};
+
+export const GradientBodyConfig = {
+    colors: ['#1B284F', '#351159', '#421C45', '#3B184E'],
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 1 },
+    locations: [0.1445, 0.4917, 0.7482, 1]
+};
+
+export const GradientBodySummaryConfig = {
+    colors: ['#351159', '#1B284F', '#351159', '#421C45', '#3B184E'],
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 1 },
+    locations: [0.005, 0.1145, 0.4917, 0.7482, 1]
+};
+
+export const GradientAlertBoxConfig = {
+    colors: ['#C724E1', '#4E22CC'],
+    start: {x: 0.5, y: 0},
+    end: { x: 0.5, y: 1 }
+};
+
+export const GradientButtonConfig = {
+    colors: ['#F94695', '#F13A76'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 }
+};

@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Images from '../utils/Images';
 import { SettingsRoute } from '../../rootNavigation/Routes';
-import { GradientHeaderAndTabConfig } from '../utils/Constants';
+import { GradientHeaderAndTabConfig } from '../defaultStyle/DefaultStyle';
 import { defaultStyles } from '../defaultStyle/DefaultStyle';
 interface CustomHeaderProps {
     title: string;
@@ -20,7 +20,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({ title, type, navigation }) 
         colors={GradientHeaderAndTabConfig.colors}
         start={GradientHeaderAndTabConfig.start}
         end={GradientHeaderAndTabConfig.end}
-        style={styles.headerWithLinear}>
+        style={styles.linearGradient}>
             {type == 1 ?
                 <View style={[styles.mainView]}>
                     <View style={[defaultStyles.contentFlexAdjustment]}>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   alinTextWithButton:{
     paddingTop: rp(12)
   },
-  headerWithLinear: {
+  linearGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

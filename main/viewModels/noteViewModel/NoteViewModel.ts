@@ -16,7 +16,7 @@ import {
   Keyboard
 } from 'react-native';
 
-import { DropdownItem, displayName, defaultCategoryData } from '../../utils/Constants';
+import { DropdownItem, displayName, defaultCategoryData, staticText } from '../../utils/Constants';
 const categoryArray = Object.values(noteType);
 
 const maxLength = 200;
@@ -58,9 +58,9 @@ export const NoteViewModel = (model: INoteModel, dispatch: any) => {
     try {
       setIsLoading(true);
       if( selectedValue == undefined){
-        Alert.alert('Alert',"Please ensure to select a category before proceeding. ")
+        Alert.alert('Alert', staticText.dropDownValidationMsg)
       }else if(text == ""){
-        Alert.alert('Alert',"Please ensure to fill out the note content fields before proceeding. ")
+        Alert.alert('Alert', staticText.contentInputValidationMsg)
       }else{
         const currentDate = new Date();
         console.log(currentDate.toISOString());
@@ -73,23 +73,22 @@ export const NoteViewModel = (model: INoteModel, dispatch: any) => {
                 setNote({noteList:response})
             );
             Alert.alert(
-                'Note Added Successfully',
+                staticText.NoteSuccessAdd,
                 '',
                 [
                   { 
-                    text: 'OK', 
+                    text: staticText.OK, 
                     onPress: () => {
-                        
+                        navigation.goBack();
                         setSelectedValue(undefined);
                         setText("");
-                        navigation.goBack();
                     }
                   }
                 ],
                 { cancelable: false }
               );
         }else{
-            Alert.alert('Alert', "We encounter some issue while saving your data, Please try again.");
+            Alert.alert('Alert', staticText.errorSaveNote);
         }
       }
         

@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Images from './Images';
 import { SettingsRoute } from '../../rootNavigation/Routes';
-import { GradientHeaderAndTabConfig, GradientButtonConfig } from './Constants';
+import { GradientHeaderAndTabConfig, GradientButtonConfig } from '../defaultStyle/DefaultStyle';
 import { defaultStyles } from '../defaultStyle/DefaultStyle';
 
 interface alertBoxProps {

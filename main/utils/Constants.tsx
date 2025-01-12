@@ -91,34 +91,22 @@ export const defaultCategoryData: Record<string, categoryAttribute> = {
     },
 }
 
-export const GradientHeaderAndTabConfig = {
-    colors: ['#280947', '#280841'],
-    start: { x: 0, y: 0 },
-    end: { x: 1, y: 0 }
-};
+export const textLimit: number = 20
 
-export const GradientBodyConfig = {
-    colors: ['#1B284F', '#351159', '#421C45', '#3B184E'],
-    start: { x: 0, y: 0 },
-    end: { x: 0, y: 1 },
-    locations: [0.1445, 0.4917, 0.7482, 1]
-};
-
-export const GradientBodySummaryConfig = {
-    colors: ['#351159', '#1B284F', '#351159', '#421C45', '#3B184E'],
-    start: { x: 0, y: 0 },
-    end: { x: 0, y: 1 },
-    locations: [0.005, 0.1145, 0.4917, 0.7482, 1]
-};
-
-export const GradientAlertBoxConfig = {
-    colors: ['#C724E1', '#4E22CC'],
-    start: {x: 0.5, y: 0},
-    end: { x: 0.5, y: 1 }
-};
-
-export const GradientButtonConfig = {
-    colors: ['#F94695', '#F13A76'],
-    start: { x: 0, y: 0 },
-    end: { x: 1, y: 1 }
+export const staticText = {
+    Summary: "Summary",
+    NoNotes: "No Notes in this Category",
+    recentNotes: "Recently created notes",
+    inputContentPlaceholder: "Please input note content",
+    dropDownPlaceholder: "Choose a category",
+    save: "Save",
+    NoteSuccessAdd: "Note Added Successfully",
+    OK: "OK",
+    errorSaveNote: "We encounter some issue while saving your data, Please try again.",
+    dropDownValidationMsg: "Please ensure to select a category before proceeding.",
+    contentInputValidationMsg: "Please ensure to fill out the note content fields before proceeding.",
+    clearNoteMsg: "All Notes have been cleared",
+    deleteBtnText: "Delete All Notes",
+    detailText: "Detail",
+    resultText : "This topic has a total of {{COUNT}} records.",
 };

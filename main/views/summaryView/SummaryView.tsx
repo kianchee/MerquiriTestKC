@@ -9,7 +9,8 @@ import { rp } from '../../utils/Helpers';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AddNoteRoute } from '../../../rootNavigation/Routes';
 import { NoteModel } from '../../models/noteModel/NoteModel';
-import { GradientBodySummaryConfig, GradientButtonConfig, defaultCategoryData } from '../../utils/Constants';
+import { defaultCategoryData, staticText } from '../../utils/Constants';
+import { GradientBodySummaryConfig, GradientButtonConfig } from '../../defaultStyle/DefaultStyle';
 import {SummaryViewModel} from '../../viewModels/summaryViewModel/SummaryViewModel';
 import ListButton from '../../utils/ListButtom';
 import DefaultButton from '../../utils/DefaultButton';
@@ -27,7 +28,7 @@ const SummaryView: React.FC = () => {
         style={[defaultStyles.gradientLayerBody]}>
             <View style={[defaultStyles.headerView]}>
                 <View style={[styles.titleView]}>
-                    <Text style={[defaultStyles.mainTitleText]}>{"Summary"}</Text>
+                    <Text style={[defaultStyles.mainTitleText]}>{staticText.Summary}</Text>
                 </View>
                 <View>
                     <Image
@@ -53,9 +54,9 @@ const SummaryView: React.FC = () => {
                                 <View style={[styles.titleType]}>
                                     <Text style={[styles.headerText]}>{defaultCategoryData[e.noteType].summaryText}</Text>
                                 </View>
-                                <DefaultButton displayText="Detail" autoSize={true} />
+                                <DefaultButton displayText={staticText.detailText} autoSize={true} />
                             </View>
-                              <ListButton keys={e.noteType} content={`This topic has a total of ${e.count} records.`} textLimit={-1} isDisabledButton={true} />
+                              <ListButton keys={e.noteType} content={staticText.resultText.replace("{{COUNT}}", e.count.toString())} textLimit={-1} isDisabledButton={true} />
                         </View>
                     )
                 })

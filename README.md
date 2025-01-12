@@ -2,9 +2,8 @@
 
 1. Clone the repository.
 2. Install dependencies with `yarn install`.
-3. Run the development server. `yarn run ios` or `yarn run android`
-4. Select i - ios, a - android
-
+3. For IOS , under project files, `cd ios` with `pod install`
+4. Run the development server. `yarn run ios` or `yarn run android`
 
 ## Runtime Environment
 
