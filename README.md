@@ -4,6 +4,7 @@
 2. Install dependencies with `yarn install`.
 3. For IOS , under project files, `cd ios` with `pod install`
 4. Run the development server. `yarn run ios` or `yarn run android`
+5. For Android, Please ensure you had added local.properties file anf set `sdk.dir={your SDK file location}` such as `/Users/wongkianchee/Library/Android/sdk`
 
 ## Runtime Environment
 
